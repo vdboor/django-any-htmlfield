@@ -1,0 +1,11 @@
+*.pyc
+*.pyo
+*.mo
+*.db
+*.egg-info/
+.project
+.pydevproject
+.idea/
+.DS_Store
+dist/
+docs/_build/
