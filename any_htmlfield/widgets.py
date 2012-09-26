@@ -18,11 +18,11 @@ class WygiwygEditorWidget(WygiwygEditorBase):
 
     def __init__(self, attrs=None):
         # Formalize constructor for the widget.
-        # TODO: find a better way to pass custom settings, while preserving the backend switching functionality
+        # TODO: find a good way to pass custom settings, while preserving the backend switching functionality
         # CKEditor uses a "config_name" (good)
         # TinuyMCE passes attributes directly, so needs a "config_name" indirection.
 
-        final_attrs = {'class': 'vLargeTextField wygiwyg-editor-field'}
+        final_attrs = {'class': 'vLargeTextField any-htmlfield'}
         if attrs is not None:
             final_attrs.update(attrs)
 

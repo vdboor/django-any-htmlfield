@@ -1,5 +1,5 @@
 from django import forms
-from wysiwyg_editor.widgets import WygiwygEditorWidget
+from .widgets import WygiwygEditorWidget
 
 
 class WygiwygEditorField(forms.CharField):

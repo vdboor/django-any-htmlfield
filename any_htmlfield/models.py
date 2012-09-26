@@ -1,6 +1,9 @@
-from django.contrib.admin.widgets import AdminTextareaWidget
 from django.db import models
+from .widgets import WygiwygEditorWidget
 
+__all__ = (
+    'HtmlField',
+)
 
 class HtmlField(models.TextField):
     """
@@ -9,16 +12,11 @@ class HtmlField(models.TextField):
     """
     def formfield(self, **kwargs):
         from .forms import WygiwygEditorField
-        from .widgets import WygiwygEditorWidget
         defaults = {
             'form_class': WygiwygEditorField,
             'widget': WygiwygEditorWidget
         }
         defaults.update(kwargs)
-
-        # Override the enforced admin widget with some sanity.
-        if defaults['widget'] is AdminTextareaWidget:
-            defaults['widget'] = WygiwygEditorWidget
 
         return super(HtmlField, self).formfield(**defaults)
 
@@ -27,7 +25,12 @@ class HtmlField(models.TextField):
 try:
     from south.modelsinspector import add_introspection_rules
     add_introspection_rules([], [
-        "^wysiwyg_editor\.models\.HtmlField",
+        "^any_htmlfield\.models\.HtmlField",
     ])
 except ImportError:
     pass
+
+
+# Tell the Django admin it shouldn't override the widget because it's a TextField
+from django.contrib.admin import options
+options.FORMFIELD_FOR_DBFIELD_DEFAULTS[HtmlField] = {'widget': WygiwygEditorWidget}

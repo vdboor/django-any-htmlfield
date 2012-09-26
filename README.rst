@@ -1,7 +1,7 @@
 Introduction
 ============
 
-The ``wysiwyg_editor`` package offers a switchable WYSIWYG editor in Django forms and the admin interface.
+The ``any_htmlfield`` package offers a switchable WYSIWYG editor in Django forms and the admin interface.
 
 By using this package instead of a specific WYSIWYG editor for your Django package,
 it gives end-developers the choice to use their preferred WYSIWYG editor for their applications.
@@ -13,7 +13,7 @@ API example
 ::
 
     from django.db import models
-    from wysiwyg_editor.models import HtmlField
+    from any_htmlfield.models import HtmlField
 
     class Article(models.Model):
         title = models.CharField(max_length=200)
@@ -32,16 +32,16 @@ Using CKEditor
 
 To use CKEditor, install::
 
-    pip install django-wysiwyg-editor django-ckeditor
+    pip install django-any-htmlfield django-ckeditor
 
 And configure it::
 
     INSTALLED_APPS += (
-        'wysiwyg_editor',
+        'any_htmlfield',
         'ckeditor',
     )
 
-And complete the configration of django-ckeditor_::
+And complete the configuration of django-ckeditor_::
 
     CKEDITOR_UPLOAD_PATH = MEDIA_ROOT
 
@@ -57,12 +57,12 @@ Using TinyMCE
 
 To use TinyMCE, install::
 
-    pip install django-wysiwyg-editor django-tinymce
+    pip install django-any-htmlfield django-tinymce
 
 And configure it::
 
     INSTALLED_APPS += (
-        'wysiwyg_editor',
+        'any_htmlfield',
         'tinymce',
     )
 
