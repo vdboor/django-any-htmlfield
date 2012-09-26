@@ -27,31 +27,6 @@ First install the module, and a accompanying WYSIWYG editor package.
 It can be installed from PyPI:
 
 
-Using Redactor
---------------
-
-To use the Radactor editor from Imperavi, install::
-
-    pip install django-any-htmlfield django-imperavi
-
-And configure it::
-
-    INSTALLED_APPS += (
-        'any_htmlfield',
-        'imperavi',
-    )
-
-And complete the configuration of django-imperavi_::
-
-    IMPERAVI_UPLOAD_PATH = MEDIA_ROOT
-
-And the required URLs::
-
-    urlpatterns += patterns('',
-        url(r'^imperavi/', include('imperavi.urls')),
-    )
-
-
 Using CKEditor
 --------------
 
@@ -96,6 +71,33 @@ And complete the configuration of django-tinymce_::
     urlpatterns += patterns('',
         url(r'^tinymce/', include('tinymce.urls')),
     )
+
+
+Using Redactor (commercial from Imperavi)
+-----------------------------------------
+
+To use the Radactor editor from Imperavi, install::
+
+    pip install django-any-htmlfield django-imperavi
+
+And configure it::
+
+    INSTALLED_APPS += (
+        'any_htmlfield',
+        'imperavi',
+    )
+
+And complete the configuration of django-imperavi_::
+
+    IMPERAVI_UPLOAD_PATH = MEDIA_ROOT
+
+And the required URLs::
+
+    urlpatterns += patterns('',
+        url(r'^imperavi/', include('imperavi.urls')),
+    )
+
+Make sure you also buy an official license at http://redactorjs.com/download/
 
 
 Changelog
