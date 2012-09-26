@@ -10,10 +10,11 @@ setup(
     extras_require = {
         'tinymce': ['django-tinymce'],
         'ckeditor': ['django-ckeditor'],
+        'imperavi': ['django-imperavi'],
         'clean-html5lib': ['html5lib'],
         'clean-pytidylib': ['pytidylib'],
     },
-    description='A WYSIWYG HTML editor field for Django, allowing to select between WYSIWYG editors easily (for example CKEditor or TinyMCE).',
+    description='A WYSIWYG HTML editor field for Django, allowing to select between WYSIWYG editors easily (for example CKEditor, Radactor or TinyMCE).',
     long_description=open('README.rst').read(),
 
     author='Diederik van der Boor',

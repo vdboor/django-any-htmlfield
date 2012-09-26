@@ -2,7 +2,21 @@ from django.conf import settings
 
 
 # Import the rich text editor backend
-if 'ckeditor' in settings.INSTALLED_APPS:
+if 'imperavi' in settings.INSTALLED_APPS:
+    from imperavi.widget import ImperaviWidget
+
+    class WygiwygEditorBase(ImperaviWidget):
+        class Media:
+            js = (
+                'imperavi/redactor/redactor.min.js',
+            )
+            css = {
+                'all': (
+                    "imperavi/redactor/css/redactor.css",
+                ),
+            }
+
+elif 'ckeditor' in settings.INSTALLED_APPS:
     from ckeditor.widgets import CKEditorWidget as WygiwygEditorBase
 elif 'tinymce' in settings.INSTALLED_APPS:
     from tinymce.widgets import AdminTinyMCE as WygiwygEditorBase

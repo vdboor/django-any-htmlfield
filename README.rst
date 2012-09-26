@@ -27,6 +27,31 @@ First install the module, and a accompanying WYSIWYG editor package.
 It can be installed from PyPI:
 
 
+Using Redactor
+--------------
+
+To use the Radactor editor from Imperavi, install::
+
+    pip install django-any-htmlfield django-imperavi
+
+And configure it::
+
+    INSTALLED_APPS += (
+        'any_htmlfield',
+        'imperavi',
+    )
+
+And complete the configuration of django-imperavi_::
+
+    IMPERAVI_UPLOAD_PATH = MEDIA_ROOT
+
+And the required URLs::
+
+    urlpatterns += patterns('',
+        url(r'^imperavi/', include('imperavi.urls')),
+    )
+
+
 Using CKEditor
 --------------
 
@@ -86,5 +111,6 @@ Credits
   which implements this idea as a template tag.
 
 .. _django-ckeditor: https://github.com/shaunsephton/django-ckeditor
+.. _django-imperavi: https://github.com/vasyabigi/django-imperavi
 .. _django-tinymce: https://github.com/aljosa/django-tinymce
 .. _django-wysiwyg: https://github.com/pydanny/django-wysiwyg
